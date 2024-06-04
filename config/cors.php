@@ -18,8 +18,8 @@ return [
     'paths' => ['api/*', 'sanctum/csrf-cookie'],
 
     'allowed_methods' => ['*'],
-
-    'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:5173')],
+    # il file 'allowed_origins' collegato a file .env riga 64
+    'allowed_origins' => [env('APP_FRONTEND_URL', 'http://localhost:5174')],
 
     'allowed_origins_patterns' => [],
 

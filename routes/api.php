@@ -3,6 +3,7 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProjectController;   //questo controller ha lo stesso  nome di un'altro ma non va in conflitto perche è di Api e non di admin
+use App\Http\Controllers\Api\TechnologyController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,3 +22,6 @@ use App\Http\Controllers\Api\ProjectController;   //questo controller ha lo stes
 
 
 Route::get('/projects',[ProjectController::class, 'index']);
+Route::get('/technologies',[TechnologyController::class, 'index']);
+// ProjectController lo scelgo in base alla pag in cui ho fatto la funzione  e getProjectBySlug è nme funzione
+Route::get('/project-by-slug/{slug}',[ProjectController::class, 'getProjectBySlug']);
