@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Lead;
 
 class LeadController extends Controller
 {
@@ -19,6 +20,7 @@ class LeadController extends Controller
         ],
         [
             'name.required' => 'nome obbligatoiro',
+            'name.min' => ':min caratteri',
             'name.max' => ':max caratteri',
             'email.required' => 'email obbligatoiro',
             'email.email' => 'email errata',
@@ -34,9 +36,17 @@ class LeadController extends Controller
 
         };
 
-        //slvo email in db
+        //salvo email in db
+        $new_lead = new Lead();
+        $new_lead ->fill($data);
+        $new_lead ->save();
+
+
         //invio email
+
+
         //restituisco json con avvenuto invio
+
         $success = true;
         return response()->json(compact('success'));
     }
